@@ -4,6 +4,18 @@ redis:
   image: redis
   ports:
     - "6379:6379"
+worker:
+  build: .
+  environment:
+    - DJANGO_ENV=development_docker
+    - DJANGO_SETTINGS_MODULE=settings.development_docker
+  command: celery worker --app=apps --workdir=/code/
+  volumes:
+    - .:/code
+  links:
+    - db
+    - redis
+    - web
 web:
   build: .
   environment:

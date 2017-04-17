@@ -155,3 +155,16 @@ LOGGING = {
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+"""
+Celery Settings
+"""
+BROKER_URL = 'redis://redis:6379/0'
+
+CELERY_SETTINGS = {
+    'CELERY_TIMEZONE': TIME_ZONE,
+    'CELERY_ENABLE_UTC': True,
+    'CELERY_RESULT_BACKEND': 'redis://',
+    'CELERY_SEND_TASK_SENT_EVENT': True,
+    'CELERY_ACCEPT_CONTENT': ['pickle', ],
+}
