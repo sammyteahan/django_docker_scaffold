@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+db.sqlite3
+.DS_STORE
+.coverage
+*._*
+npm-debug.log
