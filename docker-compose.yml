@@ -4,22 +4,11 @@ redis:
   image: redis
   ports:
     - "6379:6379"
-worker:
-  build: .
-  environment:
-    - DJANGO_ENV=development_docker
-    - DJANGO_SETTINGS_MODULE=settings.development_docker
-  command: celery worker --app=apps --workdir=/code/
-  volumes:
-    - .:/code
-  links:
-    - db
-    - redis
-    - web
 web:
   build: .
   environment:
     - DJANGO_ENV=development_docker
+    - C_FORCE_ROOT=true
   command: python manage.py runserver 0.0.0.0:8000
   volumes:
     - .:/code
@@ -28,3 +17,17 @@ web:
   links:
     - db
     - redis
+worker:
+  build: .
+  environment:
+    - DJANGO_ENV=development_docker
+    - DJANGO_SETTINGS_MODULE=settings.development_docker
+    - C_FORCE_ROOT=true
+  working_dir: /code
+  command: celery worker -A apps.core.tasks --loglevel=INFO
+  volumes:
+    - .:/code
+  links:
+    - db
+    - redis
+    - web
