@@ -7,8 +7,8 @@ Django 1.11 was just announced as an LTS release so this project structure shoul
 Assuming docker for mac is already installed, the setup should be a breeze:
 
 ```
-$> git clone git@bitbucket.org:agencyfusion/base2-web.git
-$> cd base2-web
+$> git clone https://github.com/sammyteahan/django_docker_scaffold.git
+$> cd django_docker_scaffold
 $> docker-compose up
 ```
 
