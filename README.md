@@ -4,11 +4,10 @@ Django 1.11 was just announced as an LTS release so this project structure shoul
 
 ###### Getting started
 
-Assuming docker for mac is already installed, the setup should be a breeze:
+Assuming [docker](https://www.docker.com/products/docker-desktop) is already installed locally, the setup should be a breeze:
 
 ```
 $> git clone https://github.com/sammyteahan/django_docker_scaffold.git
 $> cd django_docker_scaffold
 $> docker-compose up
 ```
-
