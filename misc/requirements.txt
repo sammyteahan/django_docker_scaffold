@@ -2,7 +2,7 @@ amqp==2.1.4
 appdirs==1.4.3
 billiard==3.5.0.2
 celery==4.0.2
-Django==1.11
+Django==1.11.15
 kombu==4.0.2
 packaging==16.8
 psycopg2==2.7.1
