@@ -5,3 +5,10 @@ db.sqlite3
 .coverage
 *._*
 npm-debug.log
+.python-version
+__pycache__
+.sass-cache
+.env
+
+/nginx/static
+/nginx/media

@@ -1,9 +1,10 @@
 version: '3'
+
 services:
   db:
-    image: postgres
+    image: postgres:9.6.2
   redis:
-    image: redis
+    image: redis:3.2.8
     ports:
       - "6379:6379"
   web:
@@ -19,6 +20,8 @@ services:
     links:
       - db
       - redis
+    stdin_open: true
+    tty: true
   worker:
     build: .
     environment:
